@@ -1,0 +1,2 @@
+- Definite loop is a loop with a known number of repetitions
+- Counted loop is a loop with the `range` keyword
