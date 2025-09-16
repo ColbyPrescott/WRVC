@@ -11,6 +11,10 @@
 - Accumulator will build up a value in a variable known as the accumulator variable
 - `range(start, n)` returns list from `start` to `n-1`
 - `range(start, n, x)` returns list from `start` to `n-1` jumping by `x`
+- Older versions of Python cannot handle large ints
+- For 32 bit systems, typical range is -2^31 to 2^31 - 1
+- Python floats can hit higher numbers through floating point precision
+- Python also has expanding ints, automatically converting ints when they become too large
 
 ## Math Library
 - `import math`
