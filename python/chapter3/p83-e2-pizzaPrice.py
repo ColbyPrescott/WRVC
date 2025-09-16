@@ -5,9 +5,9 @@ import math
 
 def main():
     diameter = float(input("Enter pizza diameter in inches: "))
-    dollarsPerSqrInch = float(input("Enter dollars per square inch: "))
+    dollars = float(input("Enter total dollars: "))
     area = math.pi * (diameter / 2) ** 2
-    cost = area * dollarsPerSqrInch
-    print("Final price: $", round(cost, 2), sep="")
+    dollarsPerSqrIn = dollars / area
+    print("Price per square inch: $", round(dollarsPerSqrIn, 2), sep="")
 
 main()
