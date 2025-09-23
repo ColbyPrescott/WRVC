@@ -1,1 +1,12 @@
 - Tkinter is Python's standard GUI module
+- Setting one graphics object to another will save a reference. Use `clone` to copy attributes
+- Traditional view - Data is modified by functions
+- Modern computer programs usually use object-oriented approach
+- Objects help simply complex systems
+- `Point.getX()` and `Point.getY()`
+- `Point.move(dx, dy)`
+- Methods that change state of object are called *mutators*
+- `GraphWin.setCoords` can be used to redefine coordinate space
+- `GraphWin.getMouse` will wait for the user similar to `input`
+- `.pyw` is a file extension that stands for Python Windows, it causes the Python shell to not show up when double clicking the file
+- `Entry` is used for an input field
