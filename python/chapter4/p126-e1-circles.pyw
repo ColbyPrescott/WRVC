@@ -12,6 +12,7 @@ def main():
         p = win.getMouse()
         size = 20
         shape = Rectangle(Point(p.getX() - size, p.getY() - size), Point(p.getX() + size, p.getY() + size))
+        # Could also use clone
         shape.setOutline("red")
         shape.setFill("red")
         shape.draw(win)

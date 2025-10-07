@@ -10,3 +10,5 @@
 - `GraphWin.getMouse` will wait for the user similar to `input`
 - `.pyw` is a file extension that stands for Python Windows, it causes the Python shell to not show up when double clicking the file
 - `Entry` is used for an input field
+
+- Could use `clone` in exercise 1
