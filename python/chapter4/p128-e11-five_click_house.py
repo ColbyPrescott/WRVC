@@ -48,6 +48,7 @@ def main():
     Line(roofTop, Point(houseBottomLeft.getX(), houseTopRight.getY())).draw(win)
     Line(roofTop, Point(houseTopRight.getX(), houseTopRight.getY())).draw(win)
     
-    message.setText("You did it wrong :(\nClick to exit") # Encouragement    win.getMouse()
+    message.setText("You did it wrong :(\nClick to exit") # Encouragement
+    win.getMouse()
 
 main()
