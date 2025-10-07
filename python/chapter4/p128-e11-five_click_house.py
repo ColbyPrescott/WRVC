@@ -3,6 +3,8 @@
 # Click 3: Center of top edge of door
 # Click 4: Center of window
 # Click 5: Top of the roof
+# Door width should be 1/5 the width of the house
+# Window width should be 1/2 the width of the door
 
 from graphics import *
 
@@ -20,6 +22,8 @@ def main():
     message.setText("Click the top right corner of the house")
     houseTopRight = win.getMouse()
     
+    houseWidth = houseTopRight.getX() - houseBottomLeft.getX()
+    houseHeight = houseTopRight.getY() - houseBottomLeft.getY()
     house = Rectangle(houseBottomLeft, houseTopRight)
     house.draw(win)
     
@@ -27,7 +31,7 @@ def main():
     message.setText("Click the top center of the door")
     doorTopCenter = win.getMouse()
     
-    doorWidth = 2
+    doorWidth = houseWidth * 0.2
     doorBottomLeft = Point(doorTopCenter.getX() - doorWidth / 2, houseBottomLeft.getY())
     doorTopRight = Point(doorTopCenter.getX() + doorWidth / 2, doorTopCenter.getY())
     door = Rectangle(doorBottomLeft, doorTopRight)
@@ -37,7 +41,7 @@ def main():
     message.setText("Click the center of the window")
     windowCenter = win.getMouse()
     
-    windowSize = 2
+    windowSize = doorWidth / 2
     windowBottomLeft = Point(windowCenter.getX() - windowSize / 2, windowCenter.getY() - windowSize / 2)
     windowTopRight = Point(windowCenter.getX() + windowSize / 2, windowCenter.getY() + windowSize / 2)
     window = Rectangle(windowBottomLeft, windowTopRight)
