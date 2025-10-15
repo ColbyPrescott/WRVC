@@ -1,0 +1,15 @@
+- Functions divide up the program
+- Functions reduce code duplication
+- Some examples so far have been `main()`, `Point.getX()`, etc.
+- DRY: Don't Repeat Yourself
+- Functions are like subprograms
+- Functions are called / invoked
+- Gives example with singing Happy Birthday
+- Gives example with future_val 
+- Formal and actual parameters
+- Local / private variables are defined inside a function
+- Global / public variables are defined outside a function
+- Local variables do not retain their values when a function ends
+- All functions return a value whether they use `return` or not. void functions will return `None`
+- Actual parameters are usually duplicated
+- Mutable objects, when passed by parameter, are not duplicated. (They effectively get passed by reference)
