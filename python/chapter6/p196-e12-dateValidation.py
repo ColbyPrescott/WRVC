@@ -22,10 +22,7 @@ monthNames = [
 
 # Would use an import statement to use p196-e11-leapYear.py but the import keyword doesn't like the hyphens
 def getLeapYear(year):
-    if year % 4 == 0 and (year % 100 != 0 or year % 400 == 0):
-        return True
-    else:
-        return False
+    return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
 
 def main():
     print("This program determines if a date is valid or not")
