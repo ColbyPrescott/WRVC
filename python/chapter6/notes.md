@@ -1,3 +1,7 @@
 - `if`, `elif`, `else`
-Do exercises 1, 2, 3 atm
-5, 6, 7, 8
+```Python
+try:
+except ValueError:
+except ValueError as excObj:
+    if str(excObj) == "math domain error":
+```
