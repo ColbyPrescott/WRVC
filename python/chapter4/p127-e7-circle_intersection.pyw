@@ -12,8 +12,8 @@ def main():
         return
     
     intersection = math.sqrt(radius**2 - intercept**2)
-    print("Intersection 1: (", -intersection, ", 10)", sep="")
-    print("Intersection 2: (", intersection, ", 10)", sep="")
+    print("Intersection 1: (", -intersection, ", ", intercept, ")", sep="")
+    print("Intersection 2: (", intersection, ", ", intercept, ")", sep="")
     
     win = GraphWin("Circle Intersection")
     win.setCoords(-10, -10, 10, 10)
