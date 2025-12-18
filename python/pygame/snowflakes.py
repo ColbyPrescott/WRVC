@@ -15,11 +15,10 @@ clock = pygame.time.Clock()
 
 angle = 0
 time = 0
-spokes = 6
 
 def draw_snowflake(cx, cy, radius, rotation):
-    for i in range(spokes):
-        a = rotation + i * (math.pi / (spokes / 2))
+    for i in range(6):
+        a = rotation + i * (math.pi / (6 / 2))
 
         # Main arm
         x = cx + radius * math.cos(a)
@@ -30,8 +29,8 @@ def draw_snowflake(cx, cy, radius, rotation):
         bx = cx + radius * 0.65 * math.cos(a)
         by = cy + radius * 0.65 * math.sin(a)
 
-        left = a + math.pi / spokes
-        right = a - math.pi / spokes
+        left = a + math.pi / 6
+        right = a - math.pi / 6
 
         pygame.draw.line(
             screen, WHITE,
