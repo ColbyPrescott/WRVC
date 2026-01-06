@@ -1,1 +1,5 @@
 Following [this](https://www.youtube.com/watch?v=8OMghdHP-zs) tutorial
+
+Must use PyGame Community
+- `pip uninstall pygame`
+- `pip install pygame-ce`
