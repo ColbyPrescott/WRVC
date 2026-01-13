@@ -2,6 +2,7 @@ from settings import *
 from player import Player
 from sprites import *
 from pytmx.util_pygame import load_pygame
+from groups import AllSprites
 
 from random import randint
 
@@ -15,7 +16,7 @@ class Game:
         self.running = True
 
         # Groups
-        self.all_sprites = pygame.sprite.Group()
+        self.all_sprites = AllSprites()
         self.collision_sprites = pygame.sprite.Group()
 
         self.setup()
@@ -47,7 +48,7 @@ class Game:
 
             # Draw
             self.display_surface.fill("black")
-            self.all_sprites.draw(self.display_surface)
+            self.all_sprites.draw(self.player.rect.center)
             pygame.display.update()
 
         pygame.quit()
