@@ -36,6 +36,7 @@ class Game:
         for obj in map.get_layer_by_name("Entities"):
             if obj.name == "Player":
                 self.player = Player((obj.x, obj.y), self.all_sprites, self.collision_sprites)
+                self.gun = Gun(self.player, self.all_sprites)
 
     def run(self):
         while self.running:
@@ -46,6 +47,8 @@ class Game:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.running = False
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    self.gun.shoot(self.all_sprites)
             
             # Update
             self.all_sprites.update(dt)
