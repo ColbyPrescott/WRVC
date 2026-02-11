@@ -87,6 +87,11 @@ class Game:
                 sprite.destroy()
             if collision_sprites:
                 bullet.kill()
+    
+    def player_collision(self):
+        if pygame.sprite.spritecollide(self.player, self.enemy_sprites, False, pygame.sprite.collide_mask):
+            pygame.time.wait(1000)
+            self.running = False
 
     def run(self):
         while self.running:
@@ -105,6 +110,7 @@ class Game:
             self.input()
             self.all_sprites.update(dt)
             self.bullet_collision()
+            self.player_collision()
 
             # Draw
             self.display_surface.fill("black")
