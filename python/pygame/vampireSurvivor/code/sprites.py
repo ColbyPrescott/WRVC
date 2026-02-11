@@ -15,22 +15,27 @@ class CollisionSprite(pygame.sprite.Sprite):
         self.rect = self.image.get_frect(topleft = pos)
 
 class Bullet(pygame.sprite.Sprite):
-    def __init__(self, pos, velocity, groups):
+    def __init__(self, surf, pos, direction, groups):
         super().__init__(groups)
 
-        self.velocity = velocity
-        angle = degrees(atan2(-self.velocity.y, self.velocity.x))
-
-        self.image = pygame.image.load(join("images", "gun", "bullet.png")).convert_alpha()
-        self.image = pygame.transform.rotate(self.image, angle)
-
+        angle = degrees(atan2(-direction.y, direction.x))
+        self.image = pygame.transform.rotate(surf, angle)
         self.rect = self.image.get_frect(center = pos)
+        
+        self.direction = direction.normalize()
+        self.speed = 1000
+
+        self.spawn_time = pygame.time.get_ticks()
+        self.lifetime = 1000
     
     def move(self, dt):
-        self.rect.center += self.velocity * dt
+        self.rect.center += self.direction * self.speed * dt
 
     def update(self, dt):
-        self.move(dt)        
+        self.move(dt)
+
+        if pygame.time.get_ticks() - self.spawn_time >= self.lifetime:
+            self.kill()
 
 class Gun(pygame.sprite.Sprite):
     def __init__(self, player, groups):
