@@ -41,7 +41,7 @@ class Gun(pygame.sprite.Sprite):
     def __init__(self, player, groups):
         # Player connections
         self.player = player
-        self.distance = 140
+        self.distance = 100
         self.player_direction = pygame.Vector2(1, 0)
 
         # Sprite setup
@@ -90,6 +90,9 @@ class Enemy(pygame.sprite.Sprite):
         self.direction = pygame.Vector2()
         self.speed = 350
 
+        self.death_time = 0
+        self.death_duration = 100
+
     def animate(self, dt):
         self.frames_index += self.animation_speed * dt
         self.image = self.frames[int(self.frames_index) % len(self.frames)]
@@ -119,8 +122,23 @@ class Enemy(pygame.sprite.Sprite):
                     if self.direction.y < 0: self.hitbox_rect.top = sprite.rect.bottom
                     if self.direction.y > 0: self.hitbox_rect.bottom = sprite.rect.top
 
+    def destroy(self):
+        # Start timer
+        self.death_time = pygame.time.get_ticks()
+        # Change the image
+        surf = pygame.mask.from_surface(self.frames[0]).to_surface()
+        surf.set_colorkey("black")
+        self.image = surf
+    
+    def death_timer(self):
+        if pygame.time.get_ticks() - self.death_time >= self.death_duration:
+            self.kill()
 
     def update(self, dt):
+        if self.death_time != 0:
+            self.death_timer()
+            return
+        
         self.move(dt)
         self.animate(dt)
 

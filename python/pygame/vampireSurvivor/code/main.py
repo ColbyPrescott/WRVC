@@ -69,7 +69,7 @@ class Game:
 
     def input(self):
         if pygame.mouse.get_pressed()[0] and self.can_shoot:
-            pos = self.gun.rect.center + self.gun.player_direction * 50
+            pos = self.gun.rect.center + self.gun.player_direction * 30
             Bullet(self.bullet_surf, pos, self.gun.player_direction, (self.all_sprites, self.bullet_sprites))
             self.can_shoot = False
             self.shoot_time = pygame.time.get_ticks()
@@ -80,6 +80,14 @@ class Game:
             if current_time - self.shoot_time >= self.gun_cooldown:
                 self.can_shoot = True
     
+    def bullet_collision(self):
+        for bullet in self.bullet_sprites:
+            collision_sprites = pygame.sprite.spritecollide(bullet, self.enemy_sprites, False)
+            for sprite in collision_sprites:
+                sprite.destroy()
+            if collision_sprites:
+                bullet.kill()
+
     def run(self):
         while self.running:
             # Delta time
@@ -96,6 +104,7 @@ class Game:
             self.gun_timer()
             self.input()
             self.all_sprites.update(dt)
+            self.bullet_collision()
 
             # Draw
             self.display_surface.fill("black")
