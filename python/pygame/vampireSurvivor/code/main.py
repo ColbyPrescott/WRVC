@@ -15,6 +15,8 @@ class Game:
         self.clock = pygame.time.Clock()
         self.running = True
 
+        self.difficulty = 1
+
         # Groups
         self.all_sprites = AllSprites()
         self.collision_sprites = pygame.sprite.Group()
@@ -28,7 +30,7 @@ class Game:
 
         # Enemy spawn timer
         self.enemy_event = pygame.event.custom_type()
-        pygame.time.set_timer(self.enemy_event, 200)
+        pygame.time.set_timer(self.enemy_event, 200, 1)
         self.spawn_positions = []
 
         # Audio
@@ -85,6 +87,7 @@ class Game:
             self.shoot_time = pygame.time.get_ticks()
 
     def gun_timer(self):
+        self.gun_cooldown = (1 - 0.75 * self.difficulty) * 300
         if not self.can_shoot:
             current_time = pygame.time.get_ticks()
             if current_time - self.shoot_time >= self.gun_cooldown:
@@ -120,11 +123,15 @@ class Game:
             # Delta time
             dt = self.clock.tick() / 1000
 
+            self.difficulty = 1 - 1 / (0.01 * pygame.time.get_ticks() / 1000 + 1)
+
             # Event loop
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.running = False
                 if event.type == self.enemy_event:
+                    delay = int(max(2, (1 - self.difficulty) * 200))
+                    pygame.time.set_timer(self.enemy_event, delay, 1)
                     for i in range(3):
                         pos = choice(self.spawn_positions)
                         if abs(pos[0] - self.player.rect.centerx) < WINDOW_WIDTH / 2 or abs(pos[1] - self.player.rect.centery) < WINDOW_HEIGHT / 2:
