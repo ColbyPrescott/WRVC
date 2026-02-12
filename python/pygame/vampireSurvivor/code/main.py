@@ -25,7 +25,7 @@ class Game:
         # Gun
         self.can_shoot = True
         self.shoot_time = 0
-        self.gun_cooldown = 100
+        self.gun_cooldown = 200
 
         # Enemy spawn timer
         self.enemy_event = pygame.event.custom_type()
@@ -83,15 +83,21 @@ class Game:
     def bullet_collision(self):
         for bullet in self.bullet_sprites:
             collision_sprites = pygame.sprite.spritecollide(bullet, self.enemy_sprites, False)
+            kill_bullet = False
             for sprite in collision_sprites:
-                sprite.destroy()
-            if collision_sprites:
+                if sprite.death_time == 0:
+                    sprite.destroy()
+                    kill_bullet = True
+            if kill_bullet:
                 bullet.kill()
     
     def player_collision(self):
-        if pygame.sprite.spritecollide(self.player, self.enemy_sprites, False, pygame.sprite.collide_mask):
-            pygame.time.wait(1000)
-            self.running = False
+        collision_sprites = pygame.sprite.spritecollide(self.player, self.enemy_sprites, False, pygame.sprite.collide_mask)
+        for collision_sprite in collision_sprites:
+            if collision_sprite.death_time == 0:
+                pygame.time.wait(1000)
+                self.running = False
+                return
 
     def run(self):
         while self.running:
@@ -103,7 +109,12 @@ class Game:
                 if event.type == pygame.QUIT:
                     self.running = False
                 if event.type == self.enemy_event:
-                    Enemy(choice(self.spawn_positions), choice(list(self.enemy_frames.values())), (self.all_sprites, self.enemy_sprites), self.player, self.collision_sprites)
+                    for i in range(3):
+                        pos = choice(self.spawn_positions)
+                        if abs(pos[0] - self.player.rect.centerx) < WINDOW_WIDTH / 2 or abs(pos[1] - self.player.rect.centery) < WINDOW_HEIGHT / 2:
+                            continue
+                        Enemy(pos, choice(list(self.enemy_frames.values())), (self.all_sprites, self.enemy_sprites), self.player, self.collision_sprites)
+                        break
             
             # Update
             self.gun_timer()
