@@ -32,12 +32,13 @@ class Game:
         self.spawn_positions = []
 
         # Audio
+        self.music = pygame.mixer.Sound(join("audio", "music.wav"))
+        self.music.set_volume(0.7)
+        self.music.play(loops = -1)
         self.shoot_sound = pygame.mixer.Sound(join("audio", "shoot.wav"))
         self.shoot_sound.set_volume(0.3)
         self.impact_sound = pygame.mixer.Sound(join("audio", "impact.ogg"))
-        self.music = pygame.mixer.Sound(join("audio", "music.wav"))
-        self.music.set_volume(0.8)
-        self.music.play(loops = -1)
+        self.game_over_sound = pygame.mixer.Sound(join("audio", "gameOver.mp3"))
 
         # World setup
         self.load_images()
@@ -105,9 +106,14 @@ class Game:
         collision_sprites = pygame.sprite.spritecollide(self.player, self.enemy_sprites, False, pygame.sprite.collide_mask)
         for collision_sprite in collision_sprites:
             if collision_sprite.death_time == 0:
-                pygame.time.wait(1000)
-                self.running = False
+                self.end_game()
                 return
+    
+    def end_game(self):
+        self.game_over_sound.play()
+        self.music.stop()
+        pygame.time.wait(1000)
+        self.running = False
 
     def run(self):
         while self.running:
