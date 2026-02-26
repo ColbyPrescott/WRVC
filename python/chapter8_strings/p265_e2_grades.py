@@ -7,6 +7,7 @@ def main():
     grade = int(input("Please input a grade (0-100): "))
 
     grade_letters = "FFFFFFDCBAA"
+    # Could also do 60*"F" + 10*"D" + ...
 
     letter = grade_letters[grade // 10]
 
