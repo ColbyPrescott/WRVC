@@ -35,6 +35,7 @@
 - Formatted string literals can use a format specifier such as `f"Cost is ${total:0.2f}"` using `<min_width>:<precision><type>`
   - `f"This int, {7:5}, uses a width of 5"` yields `"This int,     7, uses a width of 5`
   - `f"This float, {3.1415926:10.5}, uses width 10 and precision 5"` yields `"This float,    3.14159, uses width 10 and precision 5"`
+  - Skipping the `f` type may result in `e` being used
 - By default, numeric values will be right-justified and text values will be left-justified
 - Justification can be specified with `<`, `^`, and `>`
   -   `f"Left justification: {'Cool':<10}"` yields   `"Left justification: Cool      "`
