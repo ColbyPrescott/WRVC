@@ -7,7 +7,10 @@
 # Note: THe formula only applies for wind speeds in excess of three miles per hour
 
 def windchill_index(T, V):
-    return 35.74 + 0.6215 * T - 35.75 * (V ** 0.16) + 0.4275 * T * (V ** 0.16)
+    if V > 3:
+        return 35.74 + 0.6215 * T - 35.75 * (V ** 0.16) + 0.4275 * T * (V ** 0.16)
+    else:
+        return T
 
 def main():
     cell_width = 10
