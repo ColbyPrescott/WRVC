@@ -34,8 +34,12 @@ def translate_phrase_to_pl(phrase):
 
 def main():
     print("Pig Latin Translator")
-    phrase = input("Enter a phrase to translate into Pig Latin: ")
-    plphrase = translate_phrase_to_pl(phrase)
+    full_input = ""
+    line = ""
+    while line != "STOP":
+        line = input("Enter a line: ")
+        full_input += line
+    plphrase = translate_phrase_to_pl(full_input)
     print("Translated:", plphrase)
 
 if __name__ == "__main__":
