@@ -28,10 +28,15 @@ def index(myList, x):
             return i
     raise ValueError(str(x) + " is not in the list, silly")
 
+# def reverse(myList):
+#     original = myList.copy()
+#     for i in range(len(myList)):
+#         myList[len(myList) - 1 - i] = original[i]
+
 def reverse(myList):
-    original = myList.copy()
-    for i in range(len(myList)):
-        myList[len(myList) - 1 - i] = original[i]
+    for i in range(len(myList) // 2):
+        j = -i - 1
+        myList[i], myList[j] = myList[j], myList[i]
 
 def sort(myList):
     # Bubble sort or something
