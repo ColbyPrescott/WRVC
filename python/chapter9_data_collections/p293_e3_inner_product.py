@@ -1,6 +1,6 @@
-# The inner product of two vectors is an important measure of similarity and is an essential core operation in modern AI systsmes based on artificail neural networks.
-# Write and test a function innerProd(x, y) that computs the inener product of two (same length) lists. The inner product of x and y is computer as: (Book gives sigma notation form)
-# innerProd([1, 2, 3], [4, 5, 6]) should product 32
+# The inner product of two vectors is an important measure of similarity and is an essential core operation in modern AI systems based on artificial neural networks.
+# Write and test a function innerProd(x, y) that computes the inner product of two (same length) lists. The inner product of x and y is computer as: (Book gives sigma notation form)
+# innerProd([1, 2, 3], [4, 5, 6]) should produce 32
 
 def innerProd(x, y):
     if len(x) != len(y):
