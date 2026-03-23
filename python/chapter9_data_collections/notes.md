@@ -40,6 +40,7 @@
 - More efficient / performant than lists
 - Tuple example: `pair = (3, r)`
 - Simultaneous assignment: `x, y = pair`
+- Sorting a tuple will use the 1st element for highest priority, 2nd for 2nd highest priority, etc...
 
 # Dictionaries
 - A collection of items
