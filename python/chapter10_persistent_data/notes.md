@@ -27,10 +27,12 @@
 - Relative paths start with anything other than the root directory, 
 - A running program has a *working directory*, where all Python relative paths are based off of
 - `.` and `..` represent the working directory and parent of the working directory respectively
+- The `__file__` special attribute is a string of the path of the Python file 
 - Python will accept forward slashes on any device, but permits back slashes on Windows. Usually avoided for the requirement of an escape character
 
 - The `pathlib` module has many helpful path related methods
 - It handles `PosixPath` and `WindowsPath` under the hood
+- Can combine paths with the `/` operator
   - `Path.exists()`
   - `Path.with_suffix(<new_extension>)`
   - `Path.name` returns the name and extension of a file with none of the directories
