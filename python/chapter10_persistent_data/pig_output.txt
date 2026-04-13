@@ -1,0 +1,60 @@
+##ay Itewray away ogrampray otay onvertcay away entencesay intoway Igpay Atin,lay away ade-upmay anguage.lay
+##ay Anslatingtray away ordway otay PLplay eansmay ovingmay itsway initialway onsonantcay usterclay otay ethay endway ofay ethay ordway andway addingway Ay.""ay
+##ay Ififay ethay Ishenglay ordway artsstay ithway away owel,vay enthay Ay""way isway appendedway otay ethay ord.way
+##ay Ex:ex:ay On't"day alktay inway ontfray ofway ethay ids"kay ecomesbay Ay"on'tday alktayway inwayway ontfrayway ofwayway ethayway idskay"way
+##ay Otay elphay itewray ethay ogram,pray ucturestray itway ithway
+##ay irstVowel(word)fay eturnsray ethay indexway ofway ethay irstfay owelvay inway ordway
+##ay anslateWordToPL(word)tray eturnsray ethay Igpay Atinlay anslationtray ofway away isngleway ordway
+##ay aslatePhraseToPL(phrase)trnay eturnsray eanslationtray ofway away asephray
+##ay Orfay isthay ogram,pray eattray Y""ay asway away onsonantcay ifway itway isway ethay irstfay etterlay ofway away ordway andway away owelvay ifway itway appearsway elsewhereway
+
+omfray inter.filedialogtkay importway askopenfilename,way asksaveasfilenameway
+
+efday irst_vowel(word):fay
+Art"""stay atway ethay irstfay aracterchay andway epstay orwardfay untilway ethay aracterchay isway away owel.vay
+Ififay ethay irstfay aracterchay isway ethay etterlay Y,y,ay ipskay itway asway itway oesday otnay ountcay asway away owelvay inway isthay ase.cay
+Eoncay away owelvay isway ound,fay eturnray ethay indexway erewhay itway appearsway inway ethay ord."""way
+artstay ==ay 00ay
+ifway ord[start].lower()way ====ay Y":"ay
+artstay ==ay 11ay
+orfay iway inway ange(start,ray en(word)):lay
+ifway ord[i]way inway Aeiouy":"ay
+eturnray iway
+
+efday anslate_word_to_pl(word):tray
+"""If"""ifay away ordway eginsbay ithway away owel,vay ethay igpay atinlay anslationtray isway ustjay ethay amesay ordway utbay ithway Ay""way appendedway otay ethay end.way
+Erwise,othay ethay etterslay afterway ethay owelvay areway ovedmay otay ethay eginning,bay andway Ay""ay isway appendedway otay ethay end.way
+Ififay ethay originalway ordway asway uppercased,way uppercaseway ethay anslatedtray ord."""way
+iway ==ay irst_vowel(word)fay
+ifway iway ====ay 0:0:ay
+eturnray ordway ++ay Ay""way
+ordplway ==ay ord[i:]way ++ay ord[:i].lower()way ++ay Ay""ay
+##ay Ixfay orfay ifway ethay irstfay etterlay ouldshay ebay uppercaseway
+ifway ord[0].upper()way ====ay ord[0]:way
+ordplway ==ay ord[0].upper()plway ++ay ord[1:]plway
+eturnray ordplway
+
+efday anslate_phrase_to_pl(phrase):tray
+It"""splay away asephray intoway eachway ord,way eedfay eachway ordway oughthray ethay igpay atinlay anslator,tray enthay oinjay ethay anslatedtray ordsway ackbay ogethertay ithway aces.spay
+Oalsay emoveray ethay astlay ace,spay incesay othingnay isway appendedway afterward."""way
+aseplphray ==ay """"ay
+orfay ordway inway ase.split():phray
+aseplphray +=+=ay anslate_word_to_pl(word)tray ++ay ""ay ""ay
+eturnray ase[:-1]plphray
+
+efday ain():may
+"""Ask"""askay ethay userway orfay ethay athpay ofway othbay ethay inputway andway outputway ile.fay
+Epstay oughthray ethay inputway ilefay inelay ybay inelay andway eedfay eachway inelay intoway ethay igpay atinlay inelay anslator.tray
+Orfay eachway anlatedtray ine,lay itewray itway otay ethay outputway ile."""fay
+int("Pigpray Atinlay Anslator")tray
+int("Choosepray ilefay orfay inputway ext")tay
+ifnameway ==ay askopenfilename()way
+int("Choosepray ilefay otay outputway ethay anslatedtray ext")tay
+ofnameway ==ay asksaveasfilename()way
+ithway open(ifname,way "r")"r")ay asway infile,way open(ofname,way "w")"w")ay asway outfile:way
+orfay inelay inway infile:way
+int(translate_phrase_to_pl(line),pray ile=outfile)fay
+int("Done")pray
+
+ifway Ame____nay ====ay Ain__":"__may
+ain()may

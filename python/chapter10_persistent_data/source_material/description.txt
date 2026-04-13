@@ -1,0 +1,13 @@
+This is a description I took from somewhere else in this codebase.
+
+# Write a program to convert a sentence into Pig Latin, a made-up language.
+# Translating a word to PL means moving its initial consonant cluster to the end fo the word and adding "ay."
+# If the English word starts with a vowel, then "way" is appended to the word.
+# Ex: "Don't talk in front of the kids" becomes "On'tday alktay inway ontfray ofway ethay idskay"
+# To help write the program, structure it with
+#   firstVowel(word) returns the index of the first vowel in word
+#   translateWordToPL(word) returns the Pig Latin translation of a isngle word
+#   trnaslatePhraseToPL(phrase) returns treanslation of a phrase
+# For this program, treat "y" as a consonant if it is the first letter of a word and a vowel if it appears elsewhere
+
+# Every .txt file in a directory
